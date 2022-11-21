@@ -80,37 +80,24 @@ const BookacceptableTable = () => {
 
    
     useEffect(()=>{
-      const result=bookData.filter((country)=>{
-          return country.bookissue.student_name
-          .toLowerCase().match(search.toLocaleLowerCase())
+      const result=bookData.filter((book)=>{
+        const query=search.toLowerCase()
+        return (
+          book.bookissue.student_name.toLowerCase().indexOf(query) >= 0 ||
+          book.bookissue.student_id.toLowerCase().indexOf(query) >= 0 
+          
+        )
       })
+        
+         
       setFilter(result)
   },[search])
 
-
+  // book.bookissue.student_id.toLowerCase() || book.bookissue.student_name)
+  // .toLowerCase().includes(search.toLocaleLowerCase())
     return (
             
-//         <DataTable 
-//         columns={columns} 
-//         data={filterData} 
-//         pagination 
-//         fixedHeader 
-//         selectableRows 
-//         selectableRowsHighlight 
-//         highlightOnHover  
-//        // actions={<button className='btn btn-sm btn-info'>Export</button>}  
-      //  subHeader 
-      //   subHeaderComponent={
-      //       <input type="text" 
-      //   placeholder='Search-here' 
-      //   className='form-control w-25'
-      //    value={search} onChange={(e)=>setSearch(e.target.value)}/>
-        
-      //   }
-          
-        
-        
-// /> 
+
 
      <DataTable 
     columns={columns} 
@@ -120,7 +107,7 @@ const BookacceptableTable = () => {
    selectableRows 
    selectableRowsHighlight 
    highlightOnHover  
-// actions={<button className='btn btn-sm btn-info'>Export</button>}  
+ 
      subHeader 
     subHeaderComponent={
     <input type="text" 
