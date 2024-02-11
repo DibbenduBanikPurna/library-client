@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
+
 import { Link } from 'react-router-dom';
 
-import Alert from '@mui/material/Alert';
 import { useHistory } from 'react-router-dom';
 import useFirebase from '../../../Hooks/UseFirebase';
 const Register = () => {
@@ -37,19 +34,23 @@ const Register = () => {
     return (
         <div className='bg-light'>
         <div className='row'>
-            <div className='col-md-5 m-auto mt-5'>
+            <div className='col-md-3 m-auto mt-5'>
                 <div className='card'>
                     <div className='card-body'>
                     <h4 className='text-center'>Register</h4>
                      <form className='' onSubmit={handleLogInSubmit}>
-                    <TextField name="name" type="text" onChange={handleChange} sx={{ width: 1, m: 1 }} id="standard-basic" label="Your Name" variant="standard" />
-                    <TextField name="email" type="email" onChange={handleChange} sx={{ width: 1, m: 1 }} id="standard-basic" label="Your Email" variant="standard" />
-                    < TextField name="password" onChange={handleChange} sx={{ width: 1, m: 1 }} id="standard-basic" type="password" label="Your Password" variant="standard" />
-                    <TextField name="re_password" onChange={handleChange} sx={{ width: 1, m: 1 }} id="standard-basic" type="password" label="ReType Your Password" variant="standard" />
+                        <label>User-Name</label>
+                    <input name="name" type="text" onChange={handleChange} placeholder='Enter Name'  label="Your Name" className='form-control' />
+                    <label>Email</label>
+                    <input name="email" type="email" onChange={handleChange} placeholder='Enter Email' label="Your Email" className='form-control' />
+                    <label>Password</label>
+                    < input name="password" onChange={handleChange}  type="password"  placeholder="Your Password" className='form-control' />
+                    <label>Re-Type Password</label>
+                    <input name="re_password" onChange={handleChange}  type="password" placeholder="ReType Your Password" className='form-control' />
 
-                    <button className='btn btn-success form-control'  type="submit" variant='contained'>Register</button>
+                    <button className='btn btn-success form-control mt-2'  type="submit" variant='contained'>Register</button>
                     <br/>
-                    <Link to="/">  <Button color="inherit">ALready Sign Up?PLEASE LOGIN</Button> </Link>
+                    <Link to="/">  <p className='text-dark mt-4'>ALready Sign Up?PLEASE LOGIN</p> </Link>
                 </form>
                
                     </div>

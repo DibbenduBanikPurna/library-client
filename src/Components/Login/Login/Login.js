@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import './Login.css'
 import useFirebase from '../../../Hooks/UseFirebase';
-import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
-//import CircularProgress from '@mui/material/CircularProgress';
-//import Alert from '@mui/material/Alert';
+
 const Login = () => {
     const [loginData, setLoginData] = useState({})
-    const {signIn, user, isLoading,signInUsingGoogle}=useFirebase()
+    const {signIn, signInUsingGoogle}=useFirebase()
     //const [welcome,setWelcome]=useState(false)
     //console.log(user)
     const location = useLocation()
@@ -47,7 +44,7 @@ const Login = () => {
                         <br/>
                         <button className='form-control btn btn-success' type="submit" variant='contained'>LOGIN</button>
 
-                        <Link to="/register">  <Button color="inherit">NEW USER?PLEASE REGISTER</Button> </Link>
+                        <Link to="/register">  <p className='text-light'>NEW USER?PLEASE REGISTER</p> </Link>
                        
                         <p>-----------?----------</p>
                         <button className='btn btn-warning' onClick={()=>signInUsingGoogle(location,history)}>Login With Google</button>

@@ -21,7 +21,7 @@ const BookIssueForm = () => {
         e.preventDefault()
         
 
-            fetch('http://localhost:5000/bookissue',{
+            fetch('https://library-server-indol.vercel.app/bookissue',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({bookissue,id,reciveData:""} )

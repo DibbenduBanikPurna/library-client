@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     const handleAdminSubmit = (e) => {
         e.preventDefault()
         const user = { email }
-        fetch('http://localhost:5000/user/admin', {
+        fetch('https://library-server-indol.vercel.app/user/admin', {
             method: 'put',
             headers: {
                 'authorization': `Bearer ${token}`,

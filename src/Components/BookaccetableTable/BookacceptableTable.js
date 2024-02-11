@@ -13,7 +13,7 @@ const BookacceptableTable = () => {
     //console.log(filterData);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/bookissue')
+        fetch('https://library-server-indol.vercel.app/bookissue')
         .then(res=>res.json())
         .then(data=>{
             setBookData(data);

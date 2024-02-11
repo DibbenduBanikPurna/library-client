@@ -24,6 +24,7 @@ const useFirebase = () => {
                 setUsers(user)
             }).then(error => {
                 setErrors(error.message)
+
             })
             .finally(() => setIsLoading(false));
 
@@ -33,8 +34,8 @@ const useFirebase = () => {
     }
 
 
-    const signUp=(name,email,password)=>{
-        createUserWithEmailAndPassword(auth, email, password)
+    const signUp=(name,email,password,history)=>{
+        createUserWithEmailAndPassword(auth, email, password,history)
   .then((userCredential) => {
     
     const user = userCredential.user;
@@ -42,7 +43,9 @@ const useFirebase = () => {
     updateProfile(auth.currentUser, {
       displayName: name,
   }).then(() => {
-
+    alert("registraton success")
+   
+    history.push("/")
   }).catch((error) => {
       console.log(error)
   });
@@ -61,6 +64,7 @@ const useFirebase = () => {
   })
   .catch((error) => {
     console.log(error.message)
+    alert("Wrong Password!")
   });
     }
 

@@ -23,7 +23,7 @@ console.log(currentDate); // "17-6-2022"
 
     useEffect(()=>{
         //console.log(id)
-        fetch(`http://localhost:5000/bookdata/${id}`)
+        fetch(`https://library-server-indol.vercel.app/bookdata/${id}`)
         
         .then(res=>res.json())
         .then(data=>{
@@ -37,7 +37,7 @@ console.log(currentDate); // "17-6-2022"
 
     const handleSubmit=e=>{
         e.preventDefault()
-        fetch(`http://localhost:5000/bookdata/${studentInfo._id}`,
+        fetch(`https://library-server-indol.vercel.app/bookdata/${studentInfo._id}`,
         {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
