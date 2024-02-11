@@ -97,9 +97,10 @@ const BookacceptableTable = () => {
   // .toLowerCase().includes(search.toLocaleLowerCase())
     return (
             
-
-
-     <DataTable 
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md-12 col-sm-6'>
+          <DataTable 
     columns={columns} 
     data={filterData} 
     pagination 
@@ -120,6 +121,11 @@ const BookacceptableTable = () => {
 
 
 />
+          </div>
+        </div>
+      </div>
+      
+   
     );
 };
 
